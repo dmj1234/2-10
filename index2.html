@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            //获取body标签
+            var body = document.getElementsByTagName("body")[0];
+            //在document中有一个body属性，他保存乐body属性
+            var body = document.body;
+            console.log(body);
+            var html = document.documentElement;
+            console.log(html);
+
+            var all = document.all;
+            console.log(all.length);
+            for (var i = 0; i < all.length; i++) {
+                console.log(all[i]);
+            }
+
+            //根据元素的class属性值查询一组元素节点对象
+            var box1 = document.getElementsByClassName("box1");
+            console.log(box1.length);
+
+            //需要一个选择器的字符串作为参数，可以根据CSS选择器来查询一个元素节点对象
+            //如果有多个box1，只返回第一个
+            var div = document.querySelector("box1 div");
+
+            //查询多个其次，不同的是，他会将符合条件的元素封装到一个数组中返回
+            var div = document.querySelectorAll("box1")
+        }
+    </script>
+</body>
+
+</html>

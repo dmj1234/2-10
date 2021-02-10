@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //获取box1
+    var box1 = document.getElementById("box1");
+    //为按钮绑定单机响应函数
+    var btn01 = document.getElementById("btn01");
+    btn01.onclick = function () {
+        //修改box的宽度
+        //通过JS修改元素的样式   语法：元素.style.样式名 = 样式值
+        box1.style.width = "300px";
+        //注意css样式名中有-   这种名称在js中不合法的  需要修改驼峰命名法
+        box1.style.backgroundColor = "yellow";
+        //如果在样式中写了!important 会覆盖我们新增的样式 尽量不要加
+        //通过style属性设置和读取的都是内联样式，无法读取样式表中的样式
+
+        //获取元素当前显示的样式  语法： 元素.currentStyle.样式名
+        alert(box1.currentStyle.width);
+        //currentStyle 只有IE浏览器能是有
+        //在其他浏览器使用getComputedStyle()来获取当前样式
+        alert(box1.getComputedStyle(box1, null), backgroundColor);
+
+
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

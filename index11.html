@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<script>
+    window.onload = function () {
+        //onkeydown 按键被按下   如果按著按鍵不放會会连续触发
+        //onkeyup按键被弹起    获取焦点的对象
+
+        document.onkeydown = function (event) {
+            alert(2)
+            console.log(event.keyCode);
+        }
+        document.onkeyup = function () {
+            alert(2)
+        }
+    }
+</script>
+
+<body>
+    <input type="text">
+</body>
+
+</html>

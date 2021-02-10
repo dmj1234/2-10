@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        padding: 10px;
+        border: 10px solid yellow;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+
+        btn01.onclick = function () {
+            // clientWidth   clientHeight 
+            // 这个属性可以获取元素可见宽度和高度
+            // 这些属性都不是带px的，返回的都是一个数字，可以直接计算
+            // 会获取元素的宽度和高度包括内容区和内边距  这些属性都是只读的
+            alert(box.clientWidth);
+            // 获取元素整个的宽度和高度，包括内容区，内边距和边框
+            alert(box.offsetWidth);
+            //可以用来获取当前元素最近的定位父元素  只要不是默认值
+            alert(box.offsetParent);
+            //offsetLeft可以用来获取当前其定位父元素的水平偏移量
+            //offsetTop可以用来获取当前其定位父元素的垂直偏移量
+
+            // scrollLeft  可以获取水平滚动条的距离
+            // scrollTop  可以获取垂直滚动条的距离
+            alert(box4.scrollHeight - box4.scrollTop);
+
+        }
+    }
+</script>
+
+<body>
+    <div id="box3" style="position: relative;">
+        <div id="box2" style="position: relative;"></div>
+        <div id="box1"></div>
+    </div>
+    <button id="btn01">点我一下</button>
+</body>
+
+</html>

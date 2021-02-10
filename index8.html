@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function () {
+        var u1 = document.getElementById("u1")
+        var btn01 = document.getElementById("btn01");
+        // btn01.onclick = function () {
+        //     var li = document.createElement("li");
+        //     li.innerHTML = "<a href='javascript:;'>超链接</a>"
+        //     u1.appendChild(li);
+        // }
+        // //为每一个超链接都确定一个单机响应的函数
+        // var allA = document.getElementsByTagName("a");
+        // for (var i = 0; i < allA.length; i++) {
+        //     allA[i].onclick = function () {
+        //         alert("1")
+        //     }
+        // }
+
+        //将制定事件统一绑定给元素的共同祖先元素，这样当后代元素上的时间出发时，会一直冒泡到祖先元素
+        //为ul绑定一个单机响应函数
+        u1.onclick = function (event) {
+            alert(22)
+            event = event || window.event;
+            //target event 中的target表示的出发事件的对象
+
+            if (event.targe.className == "link") {
+                alert(event.target);
+            }
+        }
+    }
+</script>
+
+<body>
+    <button id="bon01">添加超链接</button>
+    <ul id="u1">
+        <li>
+            <p>dd</p>
+        </li>
+        <li>
+            <a href="javascript:;" class="link">超链接</a>
+        </li>
+        <li>
+            <a href="javascript:;" class="link">超链接1</a>
+        </li>
+        <li>
+            <a href="javascript:;" class="link">超链接2</a>
+        </li>
+    </ul>
+</body>
+
+</html>

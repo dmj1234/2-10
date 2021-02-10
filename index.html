@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<script type="text/javascript">
+    //定义一个函数，专门用来为指定元素绑定单机响应函数
+    // 参数：idStr要绑定单机响应函数的对象的id属性值
+    // fun事件的回调函数，当点击元素时，该函数将会被触发
+    function myClick(idStr, fun) {
+        var btn = document.getElementById(idStr);
+        btn.onclick = fun;
+    }
+
+    window.onload = function () {
+        //查找#bj节点
+        //为id  btn01的按钮绑定一个点击响应函数
+        var btn01 = document.getElementById("btn01");
+        btn01.onclick = function () {
+            var bj = document.getElementById("bj");
+            alert(bj.innerHTML)
+        }
+
+        //为id为btn02的按钮绑定一个单机响应函数
+        var btn02 = document.getElementById("btn02");
+        btn02.onclick = function () {
+            //查找所有li
+            //getElementsByTagName可以根据标签名来获取一组元素节点对象
+            var lis = document.getElementsByTagName("li");
+            alert(lis.length);
+            for (var i = 0; i < lis.length; i++) {
+                alert(lis[i].innerHTML);
+            }
+        }
+
+        //为id为btn03的按钮绑定一个单机响应函数
+        var btn03 = document.getElementById("btn03");
+        btn03.onclick = function () {
+            //查找所有name=gender的所有节点
+            var inputs = document.getElementsByName("gender")
+            alert(inputs.length)
+            for (var i = 0; i < inputs.length; i++) {
+                //innerHTML 用于获取元素内部的HTML代码的
+                //对于自结束标签，这个属性没有意义
+                alert("inputs[i].innerHTML")
+                //如果需要读取元素节点属性
+                //直接使用元素.属性名
+                // 例如元素.id  元素.name 元素.value
+                //注意class睡醒不能采取这种方式，读取class属性时需要使用元素.className
+                alert(inputs[i].value);
+                alert(inputs[i].className);
+            }
+        }
+
+        //为id为btn04的按钮绑定一个单机响应函数
+        var btn04 = document.getElementById("btn04");
+        btn04.onclick = function () {
+            var city = document.getElementById("city");
+            var lis = city.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                alert(lis[i].innerHTML);
+            }
+        };
+
+        //为id为btn05的按钮绑定一个单机响应函数
+        var btn05 = document.getElementById("btn05");
+        btn05.onclick = function () {
+            var city = document.getElementById("city");
+            //返回#city的所有子节点
+            var cns = city.childNodes;
+            // alert(cns.length);
+            // for (var i = 0; i < cns.length; i++) {
+            //     alert(cns[i]);
+            // }
+            var cns2 = city.children;
+            alert(cns2.length);
+        }
+
+        //为id为btn06的按钮绑定一个单机响应函数
+        var btn06 = document.getElementById("btn06");
+        btn06.onclick = function () {
+            var phone = document.getElementById("phone");
+            //返回#phone的第一份子节点
+            //phone.childNodes[0]；
+            var fir = phone.firstChild;
+            alert(fir);
+        }
+
+        //为id为btn07的按钮绑定一个单机响应函数
+        myClick("btn07", function () {
+            var bj = document.getElementById("bj");
+            var pn = bj.parentNode;
+            alert(pn.innerHTML);
+        })
+
+        //为id为btn08的按钮绑定一个单机响应函数
+        myClick("btn08", function () {
+            var and = document.getElementById("android");
+            var ps = and.previousSibling;
+            //返回Android的前一个兄弟节点（也可以获取空白的文本）
+            alert(ps.innerHTML);
+        })
+
+        //为id为btn09的按钮绑定一个单机响应函数
+        myClick("btn09", function () {
+            var um = document.getElementById("username");
+            //读取um的value属性值
+            //文本框的value属性值,就是文本框中的填写内容
+            alert(um.value);
+        })
+
+        //为id为btn10的按钮绑定一个单机响应函数
+        myClick("btn10", function () {
+            var um = document.getElementById("username");
+            alert(um.value = "天气好")
+        })
+
+        //为id为btn11的按钮绑定一个单机响应函数
+        myClick("btn11", function () {
+            var bj = document.getElementById("bj");
+            alert(bj.innerHTML);
+        })
+    }
+</script>
+<style>
+    li {
+        list-style: none;
+    }
+</style>
+
+<body>
+    <div id="total">
+        <div id="inner">
+            <p>你喜欢哪个城市？</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>黑龙江</li>
+                <li>内蒙古</li>
+            </ul>
+            <br>
+            <br>
+            <p>
+                你喜欢那座城市？
+            </p>
+            <ul id="game">
+                <li id="rl">红警</li>
+                <li>实况</li>
+                <li>极品飞车</li>
+                <li>魔兽</li>
+            </ul>
+            <br>
+            <br>
+            <p>
+                你手机的操作系统？
+            </p>
+            <ul id="phone">
+                <li>IOS</li>
+                <li id="android">Android</li>
+                <li>Windows Phone</li>
+            </ul>
+        </div>
+        <div id="inner">
+            gender:
+            <input type="radio" name="gender" value="male">
+            Male
+            <input type="radio" name="gender" value="female">
+            Female
+            <br>
+            <br>
+            name:
+            <input type="text" name="name" id="username" value="abcde">
+        </div>
+    </div>
+    <div id="btnList">
+        <div><button id="btn01">查找#bj节点</button> </div>
+        <div><button id="btn02">查找所有li节点</button> </div>
+        <div><button id="btn03">查找name=gender的所有节点</button> </div>
+        <div><button id="btn04">查找#city下所有li节点</button> </div>
+        <div><button id="btn05">返回#city的所有节点</button> </div>
+        <div><button id="btn06">返回#phone的第一个节点</button> </div>
+        <div><button id="btn07">返回#bj父节点</button> </div>
+        <div><button id="btn08">返回#android的前一个兄弟节点</button> </div>
+        <div><button id="btn09">返回#username的value节点</button> </div>
+        <div><button id="btn10">返回#username的value属性值</button> </div>
+        <div><button id="btn11">查找#bj文本</button> </div>
+    </div>
+</body>
+
+</html>
